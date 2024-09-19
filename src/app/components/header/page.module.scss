@@ -1,0 +1,33 @@
+
+.header {
+  background-color: var(--background-light);
+  color: var(--text-light);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.darkMode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+
+  :global(body.dark-mode) & {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+}
