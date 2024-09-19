@@ -1,4 +1,5 @@
 import "./layout.scss";
+// import "./page.module.scss";
 import Header from "@/app/components/header";
 import Main from "@/app/components/main";
 import { ThemeProvider, useTheme } from "@/app/contexts/theme";

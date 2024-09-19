@@ -11,12 +11,9 @@
     background-color: var(--background-dark);
     color: var(--text-dark);
   }
-
 }
 
 .box {
-  background-color: var(--background-light);
-  color: var(--text-light);
 
   width: 200px;
   height: 200px;
@@ -27,9 +24,11 @@
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   font-size: 24px;
+  background-color: var(--background-light);
+  color: var(--text-light);
+
   :global(body.dark-mode) & {
     background-color: var(--background-dark);
     color: var(--text-dark);
   }
-
 }

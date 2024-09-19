@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { IoLogoCodepen } from "react-icons/io";
 import { useTheme } from "@/app/contexts/theme";
@@ -10,13 +9,13 @@ const Header = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
   console.log("check the theme ", isDarkMode);
   return (
-    <header className={`${styles.header} `}>
-      <div className={styles.leftSection}>
+    <header className={styles.header}>
+      <div>
         <div className={styles.button}>
           <IoLogoCodepen size={22} />
         </div>
       </div>
-      <div className={styles.rightSection}>
+      <div>
         <div className={styles.button} onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun /> : <FaMoon />}
         </div>
