@@ -1,0 +1,12 @@
+.main {
+  background-color: var(--background-light);
+  color: var(--text-light);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  :global(body.dark-mode) & {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+}

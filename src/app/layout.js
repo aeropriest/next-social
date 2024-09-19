@@ -1,6 +1,8 @@
 import "./layout.scss";
 import Header from "@/app/components/header";
-import { ThemeProvider } from "@/app/contexts/theme";
+import Main from "@/app/components/main";
+import { ThemeProvider, useTheme } from "@/app/contexts/theme";
+
 import "./globals.css";
 
 export default function RootLayout({ children }) {
@@ -9,7 +11,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <Header>Fixed Header</Header>
-          <main>{children}</main>
+          <Main>{children}</Main>
         </ThemeProvider>
       </body>
     </html>
