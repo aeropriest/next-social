@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  faker-js:
+    specifier: ^1.0.0
+    version: 1.0.0
   next:
     specifier: 14.2.12
     version: 14.2.12(react-dom@18.3.1)(react@18.3.1)(sass@1.79.1)
@@ -139,6 +142,10 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /faker-js@1.0.0:
+    resolution: {integrity: sha512-kaToadbN63LWhHjl69pqG+YHlxAK0aZAPhQDUpVP7v7+RG//ZpK0OzXjCwaAQq98awOii0WSHxtJmIz0X7/UqQ==}
     dev: false
 
   /graceful-fs@4.2.11:
