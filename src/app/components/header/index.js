@@ -10,7 +10,7 @@ const Header = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
   console.log("check the theme ", isDarkMode);
   return (
-    <header className={`${styles.header} ${isDarkMode ? styles.darkMode : ""}`}>
+    <header className={`${styles.header} `}>
       <div className={styles.leftSection}>
         <div className={styles.button}>
           <IoLogoCodepen size={22} />

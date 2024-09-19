@@ -12,7 +12,7 @@
   padding: 1rem;
   transition: background-color 0.3s, color 0.3s;
 
-  &.darkMode {
+  :global(body.dark-mode) & {
     background-color: var(--background-dark);
     color: var(--text-dark);
   }
