@@ -5,8 +5,4 @@
   flex-wrap: wrap;
   justify-content: center;
   overflow-y: auto;
-  :global(body.dark-mode) & {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-  }
 }

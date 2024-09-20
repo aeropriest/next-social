@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
+
 // import { faker } from "@faker-js/faker";
 import styles from "./page.module.scss";
 import Card from "./card";

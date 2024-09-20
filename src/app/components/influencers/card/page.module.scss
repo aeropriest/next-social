@@ -24,8 +24,17 @@
   border-radius: 50%;
   object-fit: cover;
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--text-light);
+  justify-items: center;
+  align-items: center;
+  font-size: x-small;
   
+  .avatar img{
+    display: none;
+    background-color: red;
+  }
   :global(body.dark-mode) & {
     border: 1px solid var(--text-dark);
   }
@@ -43,24 +52,17 @@
   color: inherit; // Ensure it uses inherited text color
 }
 
-.button {
+.button{
   appearance: none;
-  border-radius: 128px;
-  height: 36px;
-  padding: 0 16px;
-  border: none;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: bold; // Make button text bold for emphasis
-  background-color: var(--foreground, #000);  
-  color: var(--background, #fff);
-  margin-bottom: 1.5rem;
-   &:hover {
-     background-color: var(--button-primary-hover);
-   }
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: var(--background);
+  background-color: var(--foreground);
+  border:1px solid var(--foreground);
+  &:hover {
+    color: var(--foreground);
+    background: var(--background);
+  }
 }
