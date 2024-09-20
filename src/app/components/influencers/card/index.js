@@ -1,7 +1,38 @@
-import React from "react";
-import styles from "./page.module.scss";
+"use client";
 import Link from "next/link";
-import AltImage from "../../altimage";
+
+import React, { useState, useEffect } from "react";
+import { FaUser } from "react-icons/fa";
+import styles from "./page.module.scss";
+
+function AltImage({ url }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = url;
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setHasError(true);
+  }, [url]);
+
+  return (
+    <div className={styles.imageContainer}>
+      {!imageLoaded || hasError ? (
+        <div className={styles.altimage}>
+          <FaUser size={50} />
+        </div>
+      ) : (
+        <img
+          src={url}
+          alt="User image"
+          className={styles.image}
+          onError={() => setHasError(true)}
+        />
+      )}
+    </div>
+  );
+}
 
 export default function Card({ profile }) {
   {

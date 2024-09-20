@@ -5,7 +5,7 @@
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-  justify-content: space-evenly; // Space items evenly with button at bottom
+  justify-content: space-evenly; 
   align-items: center;
   border-radius: 0.5rem;
   background-color: var(--background);
@@ -13,6 +13,20 @@
   &:hover {
     color: var(--background);
     background: var(--foreground);
+    .button {
+      color: var(--foreground);
+      background-color: var(--background);
+    }    
+    .image{
+      color: var(--background);
+      background: var(--foreground);
+      border:1px solid var(--background);  
+    }
+    .altimage{
+      color: var(--background);
+      background: var(--foreground);
+      border:1px solid var(--background);  
+    }
   }
   
   // :global(body.dark-mode) & {
@@ -31,32 +45,6 @@
   color: var(--background);
   background-color: var(--foreground);
   border:1px solid var(--foreground);
-  &:hover {
-    color: var(--foreground);
-    background: var(--background);
-  }
-}
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--text-light);
-  justify-items: center;
-  align-items: center;
-  font-size: x-small;
-  
-  .avatar img{
-    display: none;
-    background-color: red;
-  }
-  :global(body.dark-mode) & {
-    border: 1px solid var(--text-dark);
-  }
 }
 
 .name {
@@ -71,3 +59,24 @@
   color: inherit; // Ensure it uses inherited text color
 }
 
+
+.image{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: var(--background);
+  border:1px solid var(--foreground);
+  font-weight: bolder;
+}
+
+.altimage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  // color: var(--background);
+  border:1px solid var(--foreground);
+  font-weight: bolder;
+}
