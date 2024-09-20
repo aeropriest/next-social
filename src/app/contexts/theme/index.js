@@ -16,8 +16,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    // document.body.classList.toggle("dark-mode", isDarkMode);
-    document.body.classList.toggle("dark", isDarkMode);
+    document.body.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {

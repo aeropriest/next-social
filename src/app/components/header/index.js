@@ -10,14 +10,14 @@ const Header = () => {
   console.log("check the theme ", isDarkMode);
   return (
     <header className={styles.header}>
-      <div>
-        <p className={styles.logo}>NEW SOCIAL THEORY</p>
-      </div>
       {/* <div>
+        <p className={styles.logo}>NEW SOCIAL THEORY</p>
+      </div> */}
+      <div>
         <div className={styles.button}>
           <IoLogoInstagram size={24} />
         </div>
-      </div> */}
+      </div>
       <div>
         <div className={styles.button} onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}

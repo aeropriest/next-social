@@ -1,14 +1,7 @@
 .container {
-  background-color: var(--background-light);
-  color: var(--text-light);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  overflow-y: auto;
-  :global(body.dark-mode) & {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-  }
+  padding: 2rem;
+  flex-wrap: wrap;  
 }
 
 .box {
@@ -20,11 +13,4 @@
   align-items: center;
   border: 1px solid #ccc;
   font-size: 24px;
-  background-color: var(--background-light);
-  color: var(--text-light);
-
-  :global(body.dark-mode) & {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-  }
 }
