@@ -1,20 +1,39 @@
 .card {
   width: 200px;
-  height: 280px; // Increase height to accommodate all elements
-  margin: 10px;
+  margin: 2rem;
+  padding: 1rem;
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
-  justify-content: space-between; // Space items evenly with button at bottom
+  justify-content: space-evenly; // Space items evenly with button at bottom
   align-items: center;
   border-radius: 0.5rem;
-  background-color: var(--background-light);
-  color: var(--text-light);
-  border: 1px solid var(--text-light);
+  background-color: var(--background);
+  border:1px solid var(--foreground);
+  &:hover {
+    color: var(--background);
+    background: var(--foreground);
+  }
   
-  :global(body.dark-mode) & {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-    border: 1px solid var(--text-dark);
+  // :global(body.dark-mode) & {
+  //   background-color: var(--background-dark);
+  //   color: var(--text-dark);
+  //   border: 1px solid var(--text-dark);
+  // }
+}
+
+.button{
+  appearance: none;
+  display: flex;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: var(--background);
+  background-color: var(--foreground);
+  border:1px solid var(--foreground);
+  &:hover {
+    color: var(--foreground);
+    background: var(--background);
   }
 }
 
@@ -52,17 +71,3 @@
   color: inherit; // Ensure it uses inherited text color
 }
 
-.button{
-  appearance: none;
-  display: flex;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  color: var(--background);
-  background-color: var(--foreground);
-  border:1px solid var(--foreground);
-  &:hover {
-    color: var(--foreground);
-    background: var(--background);
-  }
-}

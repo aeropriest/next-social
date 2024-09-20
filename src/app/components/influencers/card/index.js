@@ -4,11 +4,13 @@ import Link from "next/link";
 import AltImage from "../../altimage";
 
 export default function Card({ profile }) {
+  {
+    /* <img src={profile.image} alt={profile.name} /> */
+  }
   return (
-    <Link href="../feed/slug">
+    <Link href={`feed/${profile.name}`}>
       <div className={styles.card}>
         <div className={styles.avatar}>
-          {/* <img src={profile.image} alt={profile.name} /> */}
           <AltImage url={profile.image} />
         </div>
         <div className={styles.name}>@{profile.name}</div>
