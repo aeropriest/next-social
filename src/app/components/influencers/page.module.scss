@@ -1,16 +1,6 @@
 .container {
   display: flex;
-  padding: 2rem;
+  padding: 0rem 2rem;
   flex-wrap: wrap;  
-}
-
-.box {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  font-size: 24px;
+  justify-content: space-between;
 }
