@@ -8,7 +8,7 @@ export default function Card({ profile }) {
     /* <img src={profile.image} alt={profile.name} /> */
   }
   return (
-    <Link href={`feed/${profile.name}`}>
+    <Link href={`/feed/${profile.name}`}>
       <div className={styles.card}>
         <div className={styles.avatar}>
           <AltImage url={profile.image} />
