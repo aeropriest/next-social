@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 
 import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
@@ -35,19 +34,14 @@ function AltImage({ url }) {
 }
 
 export default function Card({ profile }) {
-  {
-    /* <img src={profile.image} alt={profile.name} /> */
-  }
   return (
-    <Link href={`/feed/${profile.name}`}>
-      <div className={styles.card}>
-        <div className={styles.avatar}>
-          <AltImage url={profile.image} />
-        </div>
-        <div className={styles.name}>@{profile.name}</div>
-        <div className={styles.followers}>{profile.followers}</div>
-        <button className={styles.button}>Follow</button>
+    <div className={styles.card}>
+      <div className={styles.avatar}>
+        <AltImage url={profile.image} />
       </div>
-    </Link>
+      <div className={styles.name}>@{profile.name}</div>
+      <div className={styles.followers}>{profile.followers} Followers</div>
+      <button className={styles.button}>Follow</button>
+    </div>
   );
 }

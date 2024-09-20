@@ -1,138 +1,48 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-
-// import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 import styles from "./page.module.scss";
 import Card from "./card";
+import BeatLoader from "react-spinners/BeatLoader";
 
-const influencers = [
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/182.jpg",
-    name: "Lucie51",
-    followers: "34.8m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1133.jpg",
-    name: "Fannie.Welch10",
-    followers: "41.9m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/211.jpg",
-    name: "Allison_Tromp80",
-    followers: "98.1m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/65494474",
-    name: "Myrtie42",
-    followers: "75.7m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/76603824",
-    name: "Ethan_Bernier82",
-    followers: "40.6m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1234.jpg",
-    name: "Glennie.Gorczany14",
-    followers: "68.6m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/90755218",
-    name: "Andres.Spencer82",
-    followers: "84.2k",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/22237846",
-    name: "Candida.Sawayn",
-    followers: "45.1m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/58876152",
-    name: "Santina.Pagac",
-    followers: "95.3m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1130.jpg",
-    name: "Oren95",
-    followers: "20.4m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/182.jpg",
-    name: "Lucie51",
-    followers: "34.8m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1133.jpg",
-    name: "Fannie.Welch10",
-    followers: "41.9m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/211.jpg",
-    name: "Allison_Tromp80",
-    followers: "98.1m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/65494474",
-    name: "Myrtie42",
-    followers: "75.7m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/76603824",
-    name: "Ethan_Bernier82",
-    followers: "40.6m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1234.jpg",
-    name: "Glennie.Gorczany14",
-    followers: "68.6m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/90755218",
-    name: "Andres.Spencer82",
-    followers: "84.2k",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/22237846",
-    name: "Candida.Sawayn",
-    followers: "45.1m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/58876152",
-    name: "Santina.Pagac",
-    followers: "95.3m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1130.jpg",
-    name: "Oren95",
-    followers: "20.4m",
-  },
-  {
-    image: "https://avatars.githubusercontent.com/u/58876152",
-    name: "Santina.Pagac",
-    followers: "95.3m",
-  },
-  {
-    image:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1130.jpg",
-    name: "Oren95",
-    followers: "20.4m",
-  },
-];
+const formatFollowersCount = (min = 1000, max = 100000000) => {
+  var num = Math.floor(Math.random() * (max - min + 1)) + min;
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + "m"; // Millions
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + "k"; // Thousands
+  }
+  return num.toString();
+};
+
+const generateFakeProfiles = (count) => {
+  const profiles = Array.from({ length: count }).map(() => ({
+    image: faker.image.avatar(),
+    name: faker.internet.userName(),
+    followers: formatFollowersCount(),
+  }));
+  console.log(profiles);
+  return profiles;
+};
 
 export default function Influencers() {
-  const [profiles, setProfiles] = useState(influencers);
+  const [profiles, setProfiles] = useState(generateFakeProfiles(10));
   const [loading, setLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const observerRef = useRef(null);
+
+  // for hydration while waiting for images from faker
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const loadMoreProfiles = () => {
+    setLoading(true);
+    const newProfiles = generateFakeProfiles(10);
+    setProfiles((prev) => [...prev, ...newProfiles]);
+    setLoading(false);
+  };
 
   const observerCallback = useCallback(
     (entries) => {
@@ -161,12 +71,26 @@ export default function Influencers() {
       }
     };
   }, [observerCallback]);
+  if (!isClient) {
+    return null; // or a loading placeholder
+  }
 
   return (
-    <div className={styles.container}>
-      {profiles.map((profile, index) => (
-        <Card key={index} profile={profile} />
-      ))}
-    </div>
+    <>
+      <div className={styles.container}>
+        {profiles.map((profile, index) => (
+          <Card key={index} profile={profile} />
+        ))}
+        <div ref={observerRef} className={styles.observer}></div>
+      </div>
+      {loading && (
+        <div className={styles.loading}>
+          <div>
+            <BeatLoader size={20} color="var(--foreground)" />
+          </div>
+          Loading More Profiles...
+        </div>
+      )}
+    </>
   );
 }
