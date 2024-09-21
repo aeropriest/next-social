@@ -1,25 +1,31 @@
-"use client";
+'use client';
 
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useMemo,
+} from 'react';
 
 const ThemeContext = createContext();
 
-export default function ThemeProvider({ children }) {
+export function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(null);
 
   useEffect(() => {
     setIsDarkMode(
-      localStorage.getItem("theme")
-        ? localStorage.getItem("theme") === "dark"
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
+      localStorage.getItem('theme')
+        ? localStorage.getItem('theme') === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches
     );
   }, []);
 
   useEffect(() => {
     if (isDarkMode !== null) {
-      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-      document.body.classList.toggle("dark-mode", isDarkMode);
-      document.body.classList.toggle("light-mode", !isDarkMode);
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      document.body.classList.toggle('light-mode', !isDarkMode);
     }
   }, [isDarkMode]);
 
@@ -27,12 +33,18 @@ export default function ThemeProvider({ children }) {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
+  // Memoize the context value
+  const contextValue = useMemo(
+    () => ({ isDarkMode, toggleDarkMode }),
+    [isDarkMode]
+  );
+
   if (isDarkMode === null) {
     return null;
   }
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
