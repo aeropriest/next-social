@@ -1,9 +1,7 @@
-"use client";
-
-import React, { useState } from "react";
-import styles from "./styles.module.scss";
+import React from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useTheme } from "@/app/contexts/theme";
+import styles from "./styles.module.scss";
 
 export default function Toggle() {
   const { isDarkMode, toggleDarkMode } = useTheme();

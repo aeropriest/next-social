@@ -1,10 +1,11 @@
 "use client";
+
 import Logo from "@/app/components/logo";
 import Toggle from "@/app/components/toggle";
 
 import styles from "./styles.module.scss";
 
-const Header = () => {
+export default function Header() {
   return (
     <header className={styles.header}>
       <div>
@@ -15,6 +16,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

@@ -1,9 +1,10 @@
 "use client";
+
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { faker } from "@faker-js/faker";
+import BeatLoader from "react-spinners/BeatLoader";
 import styles from "./styles.module.scss";
 import Card from "./card";
-import BeatLoader from "react-spinners/BeatLoader";
 
 const formatFollowersCount = (count) => {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}m`;
@@ -51,8 +52,8 @@ export default function Influencers() {
 
   return (
     <div className={styles.container}>
-      {profiles.map((profile, index) => (
-        <Card key={index} profile={profile} />
+      {profiles.map((profile) => (
+        <Card key={profile.name} profile={profile} />
       ))}
       <div ref={observerRef} className={styles.loader}>
         {loading && (

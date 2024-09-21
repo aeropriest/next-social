@@ -22,11 +22,12 @@ function AltImage({ url }) {
           <FaUser size={50} />
         </div>
       ) : (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={url}
-          alt="User image"
           className={styles.image}
           onError={() => setHasError(true)}
+          alt={url}
         />
       )}
     </div>
@@ -41,7 +42,9 @@ export default function Card({ profile }) {
       </div>
       <div className={styles.name}>@{profile.name}</div>
       <div className={styles.followers}>{profile.followers} Followers</div>
-      <button className={styles.button}>Follow</button>
+      <button className={styles.button} type="button">
+        Follow
+      </button>
     </div>
   );
 }

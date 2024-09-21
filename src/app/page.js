@@ -1,4 +1,5 @@
-import Influencers from "./components/influencers";
+import Influencers from "@/app/components/influencers";
+
 export default function Home() {
   return (
     <div>

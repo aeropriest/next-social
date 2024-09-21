@@ -1,9 +1,10 @@
 "use client";
+
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
+export default function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(null);
 
   useEffect(() => {
@@ -35,6 +36,6 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
 export const useTheme = () => useContext(ThemeContext);
