@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '@/app/contexts/theme';
+import { useTheme } from '@/contexts/theme/ThemeContext';
 import styles from './styles.module.scss';
 
 export default function Toggle() {

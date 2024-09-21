@@ -2,27 +2,27 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  height: 50px;
+  height: 3.125rem;
   border: 0.5px solid var(--foreground);
   background-color: var(--background);
   color: var(--foreground);
   font-weight: bold;
   letter-spacing: 0.1rem;
   border-radius: 0.2rem;
-  padding: 4px;
+  padding: 0.25rem;
   cursor: pointer;
 }
 
 .toggle {
-  width: 42px;
-  height: 42px;
+  width: 2.625rem;
+  height: 2.625rem;
   background-color: var(--foreground);
   border-radius: 0.2rem;
 }
 
 .icon {
-  width: 42px;
-  height: 42px;
+  width: 2.625rem;
+  height: 2.625rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Header from './'
+import Header from './Header'
 
 // Mock the Logo and Toggle components
-jest.mock('@/app/components/logo', () => () => <div data-testid="mock-logo">Logo</div>);
-jest.mock('@/app/components/toggle', () => () => <div data-testid="mock-toggle">Toggle</div>);
+jest.mock('@/components/logo', () => () => <div data-testid="mock-logo">Logo</div>);
+jest.mock('@/components/toggle', () => () => <div data-testid="mock-toggle">Toggle</div>);
 
 describe('Header Component', () => {
   it('renders without crashing', () => {

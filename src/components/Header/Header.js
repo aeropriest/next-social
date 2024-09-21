@@ -1,7 +1,7 @@
 "use client";
 
-import Logo from "@/app/components/logo";
-import Toggle from "@/app/components/toggle";
+import Logo from '@/components/Logo//Logo';
+import Toggle from "@/components/Toggle/Toggle";
 
 import styles from "./styles.module.scss";
 

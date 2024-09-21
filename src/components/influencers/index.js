@@ -31,7 +31,7 @@ export default function Influencers() {
       const newProfiles = Array.from({ length: 10 }, generateFakeProfile);
       setProfiles((prev) => [...prev, ...newProfiles]);
       setLoading(false);
-    }, process.env.NODE_ENV === 'test' ? 100 : 1000);
+    }, process.env.NODE_ENV === 'test' ? 10 : 1000);
       }, []);
 
   useEffect(() => {

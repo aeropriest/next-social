@@ -1,6 +1,6 @@
-import Header from '@/app/components/header';
-import Main from '@/app/components/main';
-import { ThemeProvider } from '@/app/contexts/theme';
+import Header from '@/components/Header/Header';
+import Main from '@/components/Main/Main';
+import { ThemeProvider } from '@/contexts/theme/ThemeContext';
 
 import './globals.css';
 
