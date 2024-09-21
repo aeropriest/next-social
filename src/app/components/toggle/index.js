@@ -18,7 +18,7 @@ export default function Toggle() {
       ) : (
         <>
           <div className={styles.icon}>
-            <FaMoon size={24} data-testid="sun-icon"/>
+            <FaMoon size={24} data-testid="moon-icon"/>
           </div>
           <div className={styles.toggle} />
         </>

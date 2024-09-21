@@ -14,13 +14,13 @@ export function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(null);
 
   useEffect(() => {
-    setIsDarkMode(
-      localStorage.getItem('theme')
-        ? localStorage.getItem('theme') === 'dark'
-        : window.matchMedia('(prefers-color-scheme: dark)').matches
-    );
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setIsDarkMode(storedTheme === 'dark');
+    } else {
+      setIsDarkMode(false);
+    }
   }, []);
-
   useEffect(() => {
     if (isDarkMode !== null) {
       localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -33,7 +33,6 @@ export function ThemeProvider({ children }) {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  // Memoize the context value
   const contextValue = useMemo(
     () => ({ isDarkMode, toggleDarkMode }),
     [isDarkMode]
