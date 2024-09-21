@@ -56,10 +56,10 @@ export default function Influencers() {
       ))}
       <div ref={observerRef} className={styles.loader}>
         {loading && (
-          <div>
+          <>
             <BeatLoader size={20} color="var(--foreground)" />
             <div>Loading More Profiles...</div>
-          </div>
+          </>
         )}
       </div>
     </div>
