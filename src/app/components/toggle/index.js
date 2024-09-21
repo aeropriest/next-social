@@ -12,13 +12,13 @@ export default function Toggle() {
         <>
           <div className={styles.toggle} />
           <div className={styles.icon}>
-            <FaSun size={24} />
+            <FaSun size={24} data-testid="sun-icon"/>
           </div>
         </>
       ) : (
         <>
           <div className={styles.icon}>
-            <FaMoon size={24} />
+            <FaMoon size={24} data-testid="sun-icon"/>
           </div>
           <div className={styles.toggle} />
         </>
