@@ -1,6 +1,6 @@
 "use client";
 import { useTheme } from "@/app/contexts/theme";
-import styles from "./page.module.scss";
+import styles from "./styles.module.scss";
 
 export default function Main({ children }) {
   const { isDarkMode } = useTheme();

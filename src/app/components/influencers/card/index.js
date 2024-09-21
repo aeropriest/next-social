@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
-import styles from "./page.module.scss";
+import styles from "./styles.module.scss";
 
 function AltImage({ url }) {
   const [imageLoaded, setImageLoaded] = useState(false);

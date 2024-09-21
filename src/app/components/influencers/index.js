@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { faker } from "@faker-js/faker";
-import styles from "./page.module.scss";
+import styles from "./styles.module.scss";
 import Card from "./card";
 import BeatLoader from "react-spinners/BeatLoader";
 
@@ -22,26 +22,26 @@ const generateFakeProfiles = (count) => {
     name: faker.internet.userName(),
     followers: formatFollowersCount(),
   }));
-  console.log(profiles);
   return profiles;
 };
 
 export default function Influencers() {
   const [profiles, setProfiles] = useState(generateFakeProfiles(10));
   const [loading, setLoading] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const observerRef = useRef(null);
+  const [isClient, setIsClient] = useState(false);
 
-  // for hydration while waiting for images from faker
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   const loadMoreProfiles = () => {
     setLoading(true);
-    const newProfiles = generateFakeProfiles(10);
-    setProfiles((prev) => [...prev, ...newProfiles]);
-    setLoading(false);
+    setTimeout(() => {
+      const newProfiles = generateFakeProfiles(10);
+      setProfiles((prev) => [...prev, ...newProfiles]);
+      setLoading(false);
+    }, 100); // Simulate network delay
   };
 
   const observerCallback = useCallback(
@@ -81,16 +81,17 @@ export default function Influencers() {
         {profiles.map((profile, index) => (
           <Card key={index} profile={profile} />
         ))}
-        <div ref={observerRef} className={styles.observer}></div>
-      </div>
-      {loading && (
-        <div className={styles.loading}>
-          <div>
-            <BeatLoader size={20} color="var(--foreground)" />
-          </div>
-          Loading More Profiles...
+        <div ref={observerRef} className={styles.observer}>
+          {loading && (
+            <div className={styles.loading}>
+              <div>
+                <BeatLoader size={20} color="var(--foreground)" />
+              </div>
+              Loading More Profiles...
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 }
