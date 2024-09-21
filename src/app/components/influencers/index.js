@@ -6,7 +6,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import styles from "./styles.module.scss";
 import Card from "./card";
 
-const formatFollowersCount = (count) => {
+export const formatFollowersCount = (count) => {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}m`;
   if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
   return count.toString();
@@ -27,10 +27,12 @@ export default function Influencers() {
 
   const loadMoreProfiles = useCallback(() => {
     setLoading(true);
-    const newProfiles = Array.from({ length: 10 }, generateFakeProfile);
-    setProfiles((prev) => [...prev, ...newProfiles]);
-    setLoading(false);
-  }, []);
+    setTimeout(() => {
+      const newProfiles = Array.from({ length: 10 }, generateFakeProfile);
+      setProfiles((prev) => [...prev, ...newProfiles]);
+      setLoading(false);
+    }, process.env.NODE_ENV === 'test' ? 100 : 1000);
+      }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,15 +53,15 @@ export default function Influencers() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="influencers-container">
       {profiles.map((profile) => (
-        <Card key={profile.name} profile={profile} />
+        <Card key={profile.name} profile={profile} data-testid="card"/>
       ))}
       <div ref={observerRef} className={styles.loader}>
         {loading && (
           <>
-            <BeatLoader size={20} color="var(--foreground)" />
-            <div>Loading More Profiles...</div>
+            <BeatLoader size={20} color="var(--foreground)" data-testid="beat-loader"/>
+            <p data-testid="loading-text">Loading More Profiles...</p>
           </>
         )}
       </div>

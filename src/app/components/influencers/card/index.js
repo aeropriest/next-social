@@ -4,39 +4,43 @@ import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
 import styles from "./styles.module.scss";
 
-function AltImage({ url }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [hasError, setHasError] = useState(false);
+export function AltImage({ url }) {
+  const [imageState, setImageState] = useState('loading');
 
   useEffect(() => {
     const img = new Image();
     img.src = url;
-    img.onload = () => setImageLoaded(true);
-    img.onerror = () => setHasError(true);
+    img.onload = () => setTimeout(() => setImageState('loaded'), 100);
+    img.onerror = () => setImageState('error');
   }, [url]);
 
   return (
-    <div className={styles.imageContainer}>
-      {!imageLoaded || hasError ? (
-        <div className={styles.altimage}>
-          <FaUser size={50} />
+    <div className={styles.imageContainer} data-testid="image-container">
+      {imageState === 'loading' && (
+        <div className={styles.altimage} data-testid="alt-image">
+          <FaUser size={50} data-testid="fa-user-icon" />
         </div>
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element
+      )}
+      {imageState === 'error' && (
+        <div className={styles.altimage} data-testid="alt-image">
+          <FaUser size={50} data-testid="fa-user-icon" />
+        </div>
+      )}
+      {imageState === 'loaded' && (
         <img
           src={url}
           className={styles.image}
-          onError={() => setHasError(true)}
-          alt={url}
+          alt="Profile"
+          data-testid="profile-image"
+          role="img"
         />
       )}
     </div>
   );
 }
-
 export default function Card({ profile }) {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="card">
       <div className={styles.avatar}>
         <AltImage url={profile.image} />
       </div>
