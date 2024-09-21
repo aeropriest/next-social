@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 0.5rem;
   height: 50px;
   border: 0.5px solid var(--foreground);
@@ -8,19 +8,21 @@
   letter-spacing: 0.1rem;
   border-radius: 0.2rem;
   padding: 4px;
+  cursor: pointer; // Add a pointer cursor for better UX
 }
 
-.button{
+.button {
   width: 42px;
   height: 42px;
   background-color: var(--foreground);
   border-radius: 0.2rem;
 }
 
-.icon{
+.icon {
   width: 42px;
   height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+

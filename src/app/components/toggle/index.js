@@ -9,22 +9,22 @@ export default function Toggle() {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-    <>
+    <div className={styles.container} onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <div className={styles.container} onClick={toggleDarkMode}>
+        <>
           <div className={styles.button} />
           <div className={styles.icon}>
-            <FaSun size={20} />
+            <FaSun size={24} />
           </div>
-        </div>
+        </>
       ) : (
-        <div className={styles.container} onClick={toggleDarkMode}>
+        <>
           <div className={styles.icon}>
-            <FaMoon size={20} />
+            <FaMoon size={24} />
           </div>
           <div className={styles.button} />
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }

@@ -5,7 +5,7 @@
 
 /* Dark mode styles applied by JavaScript */
 body.dark-mode {
-  --background: #0a0a0a;
+  --background: #191818;
   --foreground: #ededed;
 }
 
