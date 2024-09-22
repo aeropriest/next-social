@@ -28,8 +28,8 @@ export default function Card({ profile }) {
           />
         </div>
       </div>
-      <div className={styles.name}>@{profile.name}</div>
-      <div className={styles.followers}>{profile.followers} Followers</div>
+      <p className={styles.name}>@{profile.name}</p>
+      <p className={styles.followers}>{profile.followers} Followers</p>
       <button className={styles.button} type="button">
         Follow
       </button>
