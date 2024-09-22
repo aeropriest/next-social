@@ -5,16 +5,14 @@ import { ThemeProvider } from '@/contexts/theme/ThemeContext';
 import './globals.css';
 
 export const metadata = {
-  title: "Next Social",
-  description: "Show what you see...",
+  title: 'Next Social',
+  description: 'Show what you see...',
 };
 
-
 export default function RootLayout({ children }) {
-  
   return (
     <html lang="en">
-      <body>
+      <body style={{ margin: 0, padding: 0 }}>
         <ThemeProvider>
           <Header>Fixed Header</Header>
           <Main>{children}</Main>
