@@ -15,7 +15,7 @@
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // Creates a grid with 5 equal columns
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -23,5 +23,5 @@
   width: 100%;
   text-align: center;
   font-size: 1.2rem;
-  margin: 4rem 4rem;
+  margin: 2rem 0;
 }

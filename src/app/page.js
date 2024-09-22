@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
-import Card from '@/components/InfluencerCard/InfluencerCard';
+import InfluencerCard from '@/components/InfluencerCard/InfluencerCard';
 import styles from './page.module.scss';
 
 export const formatFollowersCount = (count) => {
@@ -44,7 +44,7 @@ export default function Influencers() {
           loadMoreProfiles();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 0.5 }
     );
 
     if (observerRef.current) observer.observe(observerRef.current);
@@ -59,20 +59,20 @@ export default function Influencers() {
     <main className={styles.main}>
       <div className={styles.grid}>
         {profiles.map((profile) => (
-          <Card key={profile.name} profile={profile} data-testid="card" />
+          <InfluencerCard
+            key={profile.name}
+            profile={profile}
+            data-testid="card"
+          />
         ))}
       </div>
       <div className={styles.loader} ref={observerRef}>
-        {loading && (
-          <>
-            <BeatLoader
-              size={20}
-              color="var(--foreground)"
-              data-testid="beat-loader"
-            />
-            <p data-testid="loading-text">Loading More Profiles...</p>
-          </>
-        )}
+        <BeatLoader
+          size={20}
+          color="var(--foreground)"
+          data-testid="beat-loader"
+        />
+        <p data-testid="loading-text">Loading More Profiles...</p>
       </div>
     </main>
   );

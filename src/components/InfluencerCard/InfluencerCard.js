@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image"; // Import Next.js Image component
-import { FaUser } from "react-icons/fa";
-import styles from "./styles.module.scss";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image'; // Import Next.js Image component
+import { FaUser } from 'react-icons/fa';
+import styles from './styles.module.scss';
 
-export default function Card({ profile }) {
+export default function InfluencerCard({ profile }) {
   const [imgSrc, setImgSrc] = useState(profile.image); // Initialize with profile image
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function Card({ profile }) {
             src={imgSrc}
             alt="Profile"
             className={styles.image}
-            width={50} 
+            width={50}
             height={50}
-            onError={() => setImgSrc('/FaUser.png')} 
+            onError={() => setImgSrc('/FaUser.png')}
             data-testid="profile-image"
             role="img"
           />
