@@ -8,34 +8,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 4rem;
-}
-
-.button{
-  display: flex;
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 0.2rem;
-  color: var(--background);
-  background-color: var(--foreground);
-  border:1px solid var(--foreground);
-  &:hover {
-    color: var(--foreground);
-    background: var(--background);
-  }
-}
-
-.logo{
-  display: flex;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-  border-radius: 0.2rem;
-  color: var(--background);
-  background-color: var(--foreground);
-  border:1px solid var(--foreground);
-  font-weight: bolder;
-  &:hover {
-    color: var(--foreground);
-    background: var(--background);
-  }
+  padding: 1rem 4rem;
 }

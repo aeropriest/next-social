@@ -52,12 +52,14 @@ export default function Influencers() {
     loadMoreProfiles();
   }, []);
 
+  {/* <Card key={profile.name} profile={profile} data-testid="card"/> ref={observerRef}*/}
   return (
     <div className={styles.container} data-testid="influencers-container">
       {profiles.map((profile) => (
-        <Card key={profile.name} profile={profile} data-testid="card"/>
+        <p key={profile.name}>{profile.name}</p>
+        
       ))}
-      <div ref={observerRef} className={styles.loader}>
+      <div  className={styles.loader}>
         {loading && (
           <>
             <BeatLoader size={20} color="var(--foreground)" data-testid="beat-loader"/>

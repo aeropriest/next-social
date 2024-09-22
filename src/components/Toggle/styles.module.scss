@@ -1,13 +1,9 @@
 .button {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
-  height: 3.125rem;
   border: 0.5px solid var(--foreground);
   background-color: var(--background);
   color: var(--foreground);
-  font-weight: bold;
-  letter-spacing: 0.1rem;
   border-radius: 0.2rem;
   padding: 0.25rem;
   cursor: pointer;
@@ -21,10 +17,6 @@
 }
 
 .icon {
-  width: 2.625rem;
-  height: 2.625rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0.5rem;
 }
 

@@ -2,7 +2,6 @@
 
 import Logo from '@/components/Logo//Logo';
 import Toggle from "@/components/Toggle/Toggle";
-
 import styles from "./styles.module.scss";
 
 export default function Header() {

@@ -1,9 +1,8 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #191818;
 }
 
-/* Dark mode styles applied by JavaScript */
 body.dark-mode {
   --background: #191818;
   --foreground: #ededed;
@@ -34,7 +33,6 @@ a {
   text-decoration: none;
 }
 
-/* System preference dark mode - only applied if no .dark-mode class is present */
 @media (prefers-color-scheme: dark) {
   body:not(.dark-mode):not(.light-mode) {
     --background: #0a0a0a;
@@ -42,7 +40,6 @@ a {
   }
 }
 
-/* Optional: Light mode class for explicit light mode setting */
 body.light-mode {
   --background: #ffffff;
   --foreground: #171717;

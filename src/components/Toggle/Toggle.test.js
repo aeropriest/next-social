@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Toggle from './';
+import Toggle from './Toggle';
 import { ThemeProvider } from '@/app/contexts/theme';
 
 // Mock the useTheme hook

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Logo from './';
+import Logo from './Logo';
 
 // Mock the CSS module
 jest.mock('./styles.module.scss', () => ({
