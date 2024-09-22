@@ -28,7 +28,7 @@ export default function Influencers() {
   const loadMoreProfiles = useCallback(() => {
     setLoading(true);
     setTimeout(() => {
-      const newProfiles = Array.from({ length: 10 }, generateFakeProfile);
+      const newProfiles = Array.from({ length: 8 }, generateFakeProfile);
       setProfiles((prev) => [...prev, ...newProfiles]);
       setLoading(false);
     }, process.env.NODE_ENV === 'test' ? 10 : 1000);
