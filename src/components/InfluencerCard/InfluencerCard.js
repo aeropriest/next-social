@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'; // Import Next.js Image component
-import { FaUser } from 'react-icons/fa';
 import styles from './styles.module.scss';
 
 export default function InfluencerCard({ profile }) {
