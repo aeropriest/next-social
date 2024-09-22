@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { faker } from "@faker-js/faker";
 import BeatLoader from "react-spinners/BeatLoader";
 import styles from "./styles.module.scss";
-import Card from "./card";
+import Card from "./Card/Card";
 
 export const formatFollowersCount = (count) => {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}m`;
@@ -52,14 +52,13 @@ export default function Influencers() {
     loadMoreProfiles();
   }, []);
 
-  {/* <Card key={profile.name} profile={profile} data-testid="card"/> ref={observerRef}*/}
+
   return (
     <div className={styles.container} data-testid="influencers-container">
       {profiles.map((profile) => (
-        <p key={profile.name}>{profile.name}</p>
-        
+        <Card key={profile.name} profile={profile} data-testid="card"/>        
       ))}
-      <div  className={styles.loader}>
+      <div  className={styles.loader} ref={observerRef}>
         {loading && (
           <>
             <BeatLoader size={20} color="var(--foreground)" data-testid="beat-loader"/>

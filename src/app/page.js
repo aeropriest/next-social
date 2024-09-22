@@ -1,9 +1,9 @@
-import Influencers from "@/components/influencers";
+import Influencers from "@/components/Influencers/Influencers";
 
 export default function Home() {
   return (
     <div>
-      <Influencers />
+      <Influencers data-testid="mock-influencers"/>
     </div>
   );
 }

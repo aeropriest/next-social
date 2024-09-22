@@ -1,23 +1,20 @@
 import React from 'react';
 import { render, screen, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Influencers, { formatFollowersCount } from './';
+import Influencers, { formatFollowersCount } from './Influencers';
 
-// Mock the Card component
-jest.mock('./card', () => {
+jest.mock('./Card/Card', () => {
   return function MockCard({ profile }) {
     return <div data-testid="card">{profile.name}</div>;
   };
 });
 
-// Mock the BeatLoader component
 jest.mock('react-spinners/BeatLoader', () => {
   return function MockBeatLoader() {
     return <div data-testid="beat-loader">Loading...</div>;
   };
 });
 
-// Mock IntersectionObserver
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
   observe: jest.fn(),
@@ -75,7 +72,6 @@ describe('Influencers Component', () => {
       expect(screen.getAllByTestId('card')).toHaveLength(10);
     });
 
-    // Simulate intersection observer callback
     act(() => {
       const [intersectionCallback] = mockIntersectionObserver.mock.calls[0];
       intersectionCallback([{ isIntersecting: true }]);
