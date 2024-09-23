@@ -12,7 +12,7 @@ export default function InfluencerCard({ profile }) {
   }, [profile.image]);
 
   return (
-    <div className={styles.card} data-testid="card">
+    <div className={styles.card} data-testid="influencer-card">
       <div className={styles.avatar}>
         <div className={styles.imageContainer} data-testid="image-container">
           <Image

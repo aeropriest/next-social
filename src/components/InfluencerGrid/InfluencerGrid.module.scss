@@ -1,0 +1,14 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0.5rem;
+}
+  
+.loader {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 2rem 0;    
+}
+  

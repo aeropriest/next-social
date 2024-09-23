@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body style={{ margin: 0, padding: 0 }}>
         <ThemeProvider>
-          <Header>Fixed Header</Header>
+          <Header />
           <Main>{children}</Main>
         </ThemeProvider>
       </body>
