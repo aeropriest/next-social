@@ -1,0 +1,17 @@
+// pages/GridPage.module.scss
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Four items per row
+    gap: 1rem; // Space between rows and columns
+    margin: 0; // No margin on the container
+  }
+  
+  .gridItem {
+    display: flex;
+    justify-content: center; // Center content horizontally
+    align-items: center; // Center content vertically
+    height: 6.25rem; // Fixed height for each item
+    background-color: #f0f0f0; // Background color for visibility
+    border: 1px solid #ccc; // Optional border for clarity
+  
+  }

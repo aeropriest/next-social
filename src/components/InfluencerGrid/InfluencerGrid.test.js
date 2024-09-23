@@ -36,36 +36,27 @@ describe('Influencers Grid Component', () => {
   it('renders initial set of profiles', async () => {
     render(<InfluencerGrid />);
 
-    act(() => {
-      jest.advanceTimersByTime(200);
-    });
-
     await waitFor(() => {
       const cards = screen.getAllByTestId('influencer-card');
-      expect(cards).toHaveLength(8);
+      expect(cards).toHaveLength(296);
     });
   });
 
   it('loads more profiles when intersection observer triggers', async () => {
     render(<InfluencerGrid />);
 
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-
     await waitFor(() => {
-      expect(screen.getAllByTestId('influencer-card')).toHaveLength(8);
+      expect(screen.getAllByTestId('influencer-card')).toHaveLength(296);
     });
 
     act(() => {
       const [intersectionCallback] = mockIntersectionObserver.mock.calls[0];
       intersectionCallback([{ isIntersecting: true }]);
-      jest.advanceTimersByTime(1000);
     });
 
     await waitFor(() => {
       const cards = screen.getAllByTestId('influencer-card');
-      expect(cards).toHaveLength(16);
+      expect(cards).toHaveLength(592);
     });
   });
 
