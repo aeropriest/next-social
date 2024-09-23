@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Header from '@/components/Header/Header';
 import Main from '@/components/Main/Main';
 import { ThemeProvider } from '@/contexts/theme/ThemeContext';

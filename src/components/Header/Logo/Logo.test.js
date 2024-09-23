@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Logo from './Logo';
 
-// Mock the CSS module
 jest.mock('./styles.module.scss', () => ({
   container: 'mock-container',
   left: 'mock-left',

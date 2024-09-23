@@ -1,9 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Toggle from './Toggle';
-import { ThemeProvider } from '@/contexts/theme/ThemeContext';
-
-const themeTarget = '@/contexts/theme/ThemeContext'
 
 jest.mock('@/contexts/theme/ThemeContext', () => ({
   ...jest.requireActual('@/contexts/theme/ThemeContext'),

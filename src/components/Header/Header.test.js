@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Header from './Header';
 
-// Mock the Logo and Toggle components
 jest.mock('@/components/Header/Logo/Logo', () => () => (
   <div data-testid="mock-logo">Logo</div>
 ));

@@ -60,7 +60,7 @@ describe('Influencers Grid Component', () => {
     act(() => {
       const [intersectionCallback] = mockIntersectionObserver.mock.calls[0];
       intersectionCallback([{ isIntersecting: true }]);
-      jest.advanceTimersByTime(1000); // Simulate time for loading more profiles
+      jest.advanceTimersByTime(1000);
     });
 
     await waitFor(() => {

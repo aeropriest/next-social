@@ -48,23 +48,4 @@ describe('Card Component', () => {
       expect(img).toHaveClass('image');
     });
   });
-
-  // it('renders FaUser icon when image fails to load', async () => {
-  //   const invalidImageUrl = 'https://example.com/invalid-image.jpg';
-
-  //   render(<Card profile={{ ...mockProfile, image: invalidImageUrl }} />);
-
-  //   // Wait for the image to be rendered with the invalid URL
-  //   const img = screen.getByTestId('profile-image');
-
-  //   // Simulate an error by triggering the onError event
-  //   img.dispatchEvent(new Event('error'));
-
-  //   // Wait for the FaUser icon to be rendered
-  //   await waitFor(() => {
-  //     // Check if the fallback src is set correctly
-  //     expect(screen.queryByTestId('profile-image')).not.toBeInTheDocument(); // Ensure original image is not in the document
-  //     expect(screen.getByRole('img', { name: /Profile/i })).toHaveAttribute('src', '/FaUser.png'); // Check if fallback src is set
-  //   });
-  // });
 });

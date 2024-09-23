@@ -2,16 +2,14 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import { ThemeProvider, useTheme } from '@/contexts/theme/ThemeContext';
 
-// Mock localStorage
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
 };
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
-// Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
