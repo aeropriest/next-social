@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Logo from '@/components/Logo//Logo';
-import Toggle from "@/components/Toggle/Toggle";
-import styles from "./styles.module.scss";
+import Logo from '@/components/Header/Logo/Logo';
+import Toggle from '@/components/Header/Toggle/Toggle';
+import styles from './styles.module.scss';
 
 export default function Header() {
   return (
