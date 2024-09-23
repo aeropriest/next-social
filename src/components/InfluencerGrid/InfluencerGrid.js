@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
-import InfluencerCard from '@/components/InfluencerCard/InfluencerCard';
+import InfluencerCard from '@/components/InfluencerGrid/InfluencerCard/InfluencerCard';
 import styles from './InfluencerGrid.module.scss';
 
 export const formatFollowersCount = (count) => {
@@ -12,7 +12,7 @@ export const formatFollowersCount = (count) => {
   return count.toString();
 };
 
-const generateFakeProfile = () => ({
+export const generateFakeProfile = () => ({
   image: faker.image.avatar(),
   name: faker.internet.userName(),
   followers: formatFollowersCount(
@@ -27,14 +27,9 @@ export default function InfluencerGrid() {
 
   const loadMoreProfiles = useCallback(() => {
     setLoading(true);
-    setTimeout(
-      () => {
-        const newProfiles = Array.from({ length: 8 }, generateFakeProfile);
-        setProfiles((prev) => [...prev, ...newProfiles]);
-        setLoading(false);
-      },
-      process.env.NODE_ENV === 'test' ? 100 : 1000
-    );
+    const newProfiles = Array.from({ length: 8 }, generateFakeProfile);
+    setProfiles((prev) => [...prev, ...newProfiles]);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -62,7 +57,7 @@ export default function InfluencerGrid() {
           <InfluencerCard
             key={profile.name}
             profile={profile}
-            data-testid="card"
+            data-testid="influencer-card"
           />
         ))}
       </div>
