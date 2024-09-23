@@ -2,7 +2,13 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 import FadeLoader from 'react-spinners/FadeLoader';
-import { FaThumbsUp, FaComment, FaShare, FaHeart } from 'react-icons/fa';
+import {
+  FaRegHeart,
+  FaComment,
+  FaRegComment,
+  FaShare,
+  FaHeart,
+} from 'react-icons/fa';
 
 import styles from './styles.module.scss';
 
@@ -44,27 +50,21 @@ export default function FeedCard({ feed }) {
         />
       </div>
       <div className={styles.buttonRow}>
-        <div
-          className={`${styles.button} ${liked ? styles.filled : styles.outlined}`}
-          onClick={handleLike}
-        >
-          <FaHeart className={styles.icon} size={22} />
+        <div className={styles.button} onClick={handleLike}>
+          {liked ? (
+            <FaHeart className={styles.icon} size={20} />
+          ) : (
+            <FaRegHeart className={styles.icon} size={20} />
+          )}
           <span>{feed.likes + (liked ? 1 : 0)}</span>{' '}
-          {/* Increment likes if liked */}
         </div>
-        <div
-          className={`${styles.button} ${commented ? styles.filled : styles.outlined}`}
-          onClick={handleComment}
-        >
-          <FaComment className={styles.icon} size={22} />
+        <div className={styles.button} onClick={handleComment}>
+          {commented ? (
+            <FaComment className={styles.icon} size={20} />
+          ) : (
+            <FaRegComment className={styles.icon} size={20} />
+          )}
           <span>{feed.comments + (commented ? 1 : 0)}</span>{' '}
-          {/* Increment comments if commented */}
-        </div>
-        <div
-          className={`${styles.button} ${styles.outlined}`}
-          style={{ marginLeft: 'auto' }}
-        >
-          <FaShare className={styles.icon} size={22} />
         </div>
       </div>
       <p className={styles.text}>{feed.description}</p>

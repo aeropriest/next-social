@@ -1,4 +1,3 @@
-// components/FeedCard/styles.module.scss
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -10,37 +9,31 @@
     flex-direction: column;
 
     .imageContainer {
-        position: relative; // Needed for layout="fill"
-        width: 100%; // Full width of the card
-        height: 200px; // Fixed height for square aspect ratio
+        position: relative;
+        width: 100%;
+        height: 200px;
     }
     .loader {
-        // position: relative; // Needed for layout="fill"
-        width: 100%; // Full width of the card
-        height: 200px; // Fixed height for square aspect ratio
-    }
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;    }
 
     .buttonRow {
         display: flex;
-        justify-content: space-between;
-        padding: 8px;
-
+        padding-top: 10px;
         .button {
             display: flex;
             align-items: center;
             cursor: pointer;
             margin: 4px;
             padding: 0px 4px;
-            // border: 1px solid red;
-            // border-radius: 4px;
-
             .icon {
-                margin-right: 4px; // Space between icon and text
-                color: #555; // Icon color
+                margin-right: 4px;
             }
-
             &:hover .icon {
-                color: #0070f3; // Change color on hover
+                color: #0070f3;
             }
         }
     }
@@ -55,5 +48,4 @@
         -webkit-line-clamp: 2; 
         -webkit-box-orient: vertical;
     }
-
 }
