@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import styles from './InfluencerCard.module.scss';
 import FadeLoader from 'react-spinners/FadeLoader';
 import Link from 'next/link';
+import styles from './InfluencerCard.module.scss';
 
 export default function InfluencerCard({ profile }) {
   const [loading, setLoading] = useState(true);

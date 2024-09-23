@@ -4,9 +4,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
 import FeedCard from '@/components/FeedCard/FeedCard';
-import styles from './page.module.scss';
 import { useSearchParams } from 'next/navigation';
 import Banner from '@/components/Banner/Banner';
+import styles from './page.module.scss';
 
 const categories = ['nature', 'animals', 'people', 'tech', 'city'];
 

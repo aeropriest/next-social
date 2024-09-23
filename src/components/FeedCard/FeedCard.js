@@ -1,13 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import FadeLoader from 'react-spinners/FadeLoader';
-import {
-  FaRegHeart,
-  FaComment,
-  FaRegComment,
-  FaShare,
-  FaHeart,
-} from 'react-icons/fa';
+import { FaRegHeart, FaComment, FaRegComment, FaHeart } from 'react-icons/fa';
 
 import styles from './FeedCard.module.scss';
 

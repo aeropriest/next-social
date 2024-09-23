@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaArrowLeft, FaShareAlt } from 'react-icons/fa';
-import styles from './Banner.module.scss'; // Ensure you have a CSS module for styling
 import { useRouter } from 'next/navigation';
+import styles from './Banner.module.scss'; // Ensure you have a CSS module for styling
 
 export default function Banner({ profile }) {
   const router = useRouter();
@@ -24,10 +24,10 @@ export default function Banner({ profile }) {
           className={styles.bannerImage}
         />
         <div className={styles.buttonContainer}>
-          <button className={styles.backButton}>
+          <button className={styles.backButton} type="button">
             <FaArrowLeft size={18} onClick={handleBackButtonClick} />
           </button>
-          <button className={styles.shareButton}>
+          <button className={styles.shareButton} type="button">
             <FaShareAlt size={18} />
           </button>
         </div>
@@ -43,7 +43,9 @@ export default function Banner({ profile }) {
         <p className={styles.name}>{name}</p>
         <p className={styles.followers}>{followers} Followers</p>
       </div>
-      <button className={styles.followButton}>Follow</button>
+      <button className={styles.followButton} type="button">
+        Follow
+      </button>
     </div>
   );
 }
