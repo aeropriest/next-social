@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
-import Image from 'next/image';
+import FeedCard from '@/components/FeedCard/FeedCard';
 import styles from './page.module.scss';
 
 const categories = ['nature', 'animals', 'people', 'tech', 'city'];
@@ -11,12 +11,13 @@ const categories = ['nature', 'animals', 'people', 'tech', 'city'];
 function generateFeedItems() {
   return Array.from({ length: 12 }, (_, index) => {
     const category = categories[Math.floor(Math.random() * categories.length)];
-    console.log(faker.image.urlLoremFlickr({ category }));
     return {
       id: index,
       imageUrl: faker.image.urlLoremFlickr({ category }),
       description: faker.lorem.sentence(),
       likes: Math.floor(Math.random() * 100),
+      comments: Math.floor(Math.random() * 100),
+      loading: true, // Add loading state for each image
     };
   });
 }
@@ -59,15 +60,8 @@ export default function Feed() {
   return (
     <main className={styles.main}>
       <div className={styles.grid}>
-        {feedItems.map((item) => (
-          <div className={styles.card} key={item.id} data-testid="card">
-            <Image
-              src={item.imageUrl}
-              alt="Tech Image"
-              layout="fill" // Fill the parent div
-              objectFit="cover" // Crop the image to cover the div
-            />
-          </div>
+        {feedItems.map((feed) => (
+          <FeedCard key={feed.imageUrl} feed={feed} />
         ))}
       </div>
       <div className={styles.loader} ref={observerRef}>
