@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { faker } from '@faker-js/faker';
-import BeatLoader from 'react-spinners/BeatLoader';
 import FeedCard from '@/components/FeedCard/FeedCard';
-import styles from './page.module.scss';
 import { useSearchParams } from 'next/navigation';
 import Banner from '@/components/Banner/Banner';
+import InfiniteGrid from '@/components/InfiniteGrid/InfiniteGrid';
 
-const categories = ['nature', 'animals', 'people', 'tech', 'city'];
+const categories = ['nature', 'animals', 'people', 'tech', 'city', 'food'];
 
 function generateFeedItems() {
   return Array.from({ length: 12 }, (_, index) => {
@@ -30,55 +29,32 @@ export default function Feed() {
   const profile = slug ? JSON.parse(decodeURIComponent(slug)) : null;
 
   const [feedItems, setFeedItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const observerRef = useRef(null);
 
-  const loadMoreProfiles = useCallback(() => {
-    setLoading(true);
-    setTimeout(
-      () => {
-        const newFeedItems = generateFeedItems();
-        setFeedItems((prev) => [...prev, ...newFeedItems]);
-        setLoading(false);
-      },
-      process.env.NODE_ENV === 'test' ? 100 : 1000
-    );
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading) {
-          loadMoreProfiles();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (observerRef.current) observer.observe(observerRef.current);
-    return () => observer.disconnect();
-  }, [loading, loadMoreProfiles]);
+  const loadMoreFeed = () => {
+    return new Promise((resolve) => {
+      setTimeout(
+        () => {
+          const newFeedItems = generateFeedItems();
+          setFeedItems((prev) => [...prev, ...newFeedItems]);
+          resolve();
+        },
+        process.env.NODE_ENV === 'test' ? 100 : 1000
+      );
+    });
+  };
 
   useEffect(() => {
-    loadMoreProfiles();
+    loadMoreFeed();
   }, []);
 
   return (
     <main>
       <Banner profile={profile} />
-      <div className={styles.grid}>
-        {feedItems.map((feed) => (
-          <FeedCard key={feed.imageUrl} feed={feed} />
-        ))}
-      </div>
-      <div className={styles.loader} ref={observerRef}>
-        <BeatLoader
-          size={20}
-          color="var(--foreground)"
-          data-testid="beat-loader"
-        />
-        <p data-testid="loading-text">Loading More Profiles...</p>
-      </div>
+      <InfiniteGrid
+        loadMoreItems={loadMoreFeed}
+        items={feedItems}
+        renderItem={(feed) => <FeedCard key={feed.imageUrl} feed={feed} />}
+      />
     </main>
   );
 }

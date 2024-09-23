@@ -5,6 +5,8 @@ import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
 import InfluencerCard from '@/components/InfluencerGrid/InfluencerCard/InfluencerCard';
 import styles from './InfluencerGrid.module.scss';
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import InfiniteGrid from '@/components/InfiniteGrid/InfiniteGrid';
 
 export const formatFollowersCount = (count) => {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}m`;
@@ -22,29 +24,21 @@ export const generateFakeProfile = () => ({
 
 export default function InfluencerGrid() {
   const [profiles, setProfiles] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const observerRef = useRef(null);
 
-  const loadMoreProfiles = useCallback(() => {
-    setLoading(true);
-    const newProfiles = Array.from({ length: 8 }, generateFakeProfile);
-    setProfiles((prev) => [...prev, ...newProfiles]);
-    setLoading(false);
-  }, []);
+  const loadMoreProfiles = () => {
+    return new Promise((resolve) => {
+      setTimeout(
+        () => {
+          const newProfiles = Array.from({ length: 8 }, generateFakeProfile);
+          setProfiles((prev) => [...prev, ...newProfiles]);
+          resolve();
+        },
+        process.env.NODE_ENV === 'test' ? 100 : 1000
+      );
+    });
+  };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading) {
-          loadMoreProfiles();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (observerRef.current) observer.observe(observerRef.current);
-    return () => observer.disconnect();
-  }, [loading, loadMoreProfiles]);
+  const { observerRef, loading } = useInfiniteScroll(loadMoreProfiles);
 
   useEffect(() => {
     loadMoreProfiles();
@@ -52,24 +46,17 @@ export default function InfluencerGrid() {
 
   return (
     <main className={styles.main} role="main">
-      <div className={styles.grid}>
-        {profiles.map((profile) => (
+      <InfiniteGrid
+        loadMoreItems={loadMoreProfiles}
+        items={profiles}
+        renderItem={(profile) => (
           <InfluencerCard
             key={profile.name}
             profile={profile}
             data-testid="influencer-card"
           />
-        ))}
-      </div>
-      <div className={styles.loader} ref={observerRef}>
-        x
-        <BeatLoader
-          size={20}
-          color="var(--foreground)"
-          data-testid="beat-loader"
-        />
-        <p data-testid="loading-text">Loading More Profiles...</p>
-      </div>
+        )}
+      />
     </main>
   );
 }

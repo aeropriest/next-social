@@ -4,9 +4,10 @@
   
   .banner {
     position: relative;
-    height: 200px;
+    height: 15rem;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 5rem;
   }
   
   .bannerImage {
@@ -17,7 +18,7 @@
   
   .buttonContainer {
     position: absolute;
-    top: 10px;
+    top: 1rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -37,11 +38,11 @@
 
   .profileImageContainer {
     position: absolute;
-    bottom: -80px; 
-    left: 20px;
+    bottom: -5rem; 
+    left: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
   
   .profileImage {
@@ -51,7 +52,7 @@
   
   .followButton {
     position: absolute;
-    bottom: -40px;
+    bottom: -5rem;
     right: 0rem;
     cursor: pointer;
     border-radius: 0.5rem;

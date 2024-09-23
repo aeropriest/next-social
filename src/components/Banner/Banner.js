@@ -3,14 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaArrowLeft, FaShareAlt } from 'react-icons/fa';
-import styles from './Banner.module.scss'; // Ensure you have a CSS module for styling
+import styles from './Banner.module.scss';
 import { useRouter } from 'next/navigation';
 
 export default function Banner({ profile }) {
   const router = useRouter();
   const { image, name, followers } = profile;
   const handleBackButtonClick = () => {
-    router.back(); // Navigate back to the previous page
+    router.back();
   };
 
   return (
@@ -36,8 +36,8 @@ export default function Banner({ profile }) {
         <Image
           src={image}
           alt={name}
-          width={100} // Adjust size as needed
-          height={100} // Adjust size as needed
+          width={100}
+          height={100}
           className={styles.profileImage}
         />
         <p className={styles.name}>{name}</p>
