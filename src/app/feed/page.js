@@ -5,6 +5,8 @@ import { faker } from '@faker-js/faker';
 import BeatLoader from 'react-spinners/BeatLoader';
 import FeedCard from '@/components/FeedCard/FeedCard';
 import styles from './page.module.scss';
+import { useSearchParams } from 'next/navigation';
+import Banner from '@/components/Banner/Banner';
 
 const categories = ['nature', 'animals', 'people', 'tech', 'city'];
 
@@ -23,6 +25,10 @@ function generateFeedItems() {
 }
 
 export default function Feed() {
+  const searchParams = useSearchParams();
+  const slug = searchParams.get('slug');
+  const profile = slug ? JSON.parse(decodeURIComponent(slug)) : null;
+
   const [feedItems, setFeedItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
@@ -58,7 +64,8 @@ export default function Feed() {
   }, []);
 
   return (
-    <main className={styles.main}>
+    <main>
+      <Banner profile={profile} />
       <div className={styles.grid}>
         {feedItems.map((feed) => (
           <FeedCard key={feed.imageUrl} feed={feed} />

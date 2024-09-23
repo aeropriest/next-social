@@ -1,0 +1,71 @@
+.bannerContainer {
+    position: relative;
+  }
+  
+  .banner {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .bannerImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .buttonContainer {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .backButton,
+  .shareButton {
+    background-color: var(--foreground);
+    color: var(--background);
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+    display: flex;
+    border: none;
+  }
+
+  .profileImageContainer {
+    position: absolute;
+    bottom: -80px; 
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .profileImage {
+    border-radius: 50%;
+    border: 1px solid var(--foreground);
+  }
+  
+  .followButton {
+    position: absolute;
+    bottom: -40px;
+    right: 0rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: var(--background);
+    background-color: var(--foreground);
+    border:1px solid var(--foreground);
+    padding: 0.5rem 1.5rem;
+  }  
+
+  .name {
+    font-weight: 900;
+    font-size: 1.2rem;
+  }  
+
+  .followers {
+    color: gray; 
+  }

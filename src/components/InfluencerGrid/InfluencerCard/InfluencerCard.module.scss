@@ -18,6 +18,9 @@
       background-color: var(--background);
     }    
   }
+  text-decoration: none;
+  color: inherit; 
+
 }
 
 .button{
@@ -31,7 +34,7 @@
 }
 
 .name {
-  font-size:0.825rem;
+  font-size:1.25rem;
   font-weight: bold;
 }
 

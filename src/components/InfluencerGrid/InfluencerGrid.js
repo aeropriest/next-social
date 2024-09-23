@@ -62,6 +62,7 @@ export default function InfluencerGrid() {
         ))}
       </div>
       <div className={styles.loader} ref={observerRef}>
+        x
         <BeatLoader
           size={20}
           color="var(--foreground)"
