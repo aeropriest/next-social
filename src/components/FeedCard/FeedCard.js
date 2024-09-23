@@ -10,7 +10,7 @@ import {
   FaHeart,
 } from 'react-icons/fa';
 
-import styles from './styles.module.scss';
+import styles from './FeedCard.module.scss';
 
 export default function FeedCard({ feed }) {
   const [loading, setLoading] = useState(true);

@@ -1,13 +1,18 @@
 :root {
   --background: #f9f9f9;
   --foreground: #333;
-
-  --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */  
 }
 
 body.dark-mode {
   --background: #333;
   --foreground: #f9f9f9;
+  --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode {
+  --background: #f9f9f9;
+  --foreground: #333;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 html,

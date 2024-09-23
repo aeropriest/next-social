@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'; // Import Next.js Image component
-import styles from './styles.module.scss';
+import styles from './InfluencerCard.module.scss';
 
 export default function InfluencerCard({ profile }) {
   const [imgSrc, setImgSrc] = useState(profile.image); // Initialize with profile image
