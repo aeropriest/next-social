@@ -1,14 +1,15 @@
 .card {
-  box-shadow: 0 1px 10px var(--shadow-color);
-  flex: calc(25% - 1rem);
-  padding: 1.5rem;
-  display: flex;
-  gap: 0.825rem;
-  flex-direction: column;
-  justify-content: space-evenly; 
-  align-items: center;
+  border: 1px solid var(--shadow-color);
+  box-shadow: 0 1px 0.625rem var(--shadow-color);
   border-radius: 0.5rem;
-  background-color: var(--background);
+  overflow: hidden;
+  max-width: 18.75rem;
+  margin: 1rem 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.825rem;
+  align-items: center;
+  padding: 1.5rem;
   
   &:hover {
     color: var(--background);
