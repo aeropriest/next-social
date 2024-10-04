@@ -1,0 +1,51 @@
+.container {
+    padding: 20px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text inside the container */
+}
+
+.inputSection {
+    width: 50%;
+    margin-bottom: 20px;
+    gap: 16px;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    input,
+    textarea {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        
+        &:focus {
+            border-color: #0070f3;
+            outline: none;
+        }
+    }
+
+    button {
+        padding: 10px;
+        background-color: #0070f3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        
+        &:hover {
+            background-color: #005bb5;
+            cursor: pointer;
+        }
+    }
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
+}

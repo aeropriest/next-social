@@ -1,0 +1,54 @@
+// pages/SecureInput.module.scss
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; // Full height for vertical centering
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secureInput {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.dot {
+    font-size: 2rem; // Size of the dots/asterisks
+    margin: 0 5px; // Spacing between dots
+}
+
+.input {
+    width: calc(100% - 10px); // Full width minus padding
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: #0070f3; // Button color
+    color: white; // Text color
+    padding: 10px;
+    border-radius: 4px;
+
+   & + & {
+     margin-left:10px; // Add margin between buttons
+   }
+}
+
+// Use :disabled pseudo-class instead of button[disabled]
+.button:disabled {
+     background-color: #ccc; // Disabled button color
+     cursor: not-allowed; // Change cursor style for disabled button
+}

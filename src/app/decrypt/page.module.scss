@@ -1,0 +1,56 @@
+// pages/page.module.scss
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+}
+
+.secureInput {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.dot {
+    font-size: 2rem; // Size of the dots/asterisks
+    margin: 0 5px; // Spacing between dots
+}
+
+.input,
+.textarea {
+    width: calc(100% - 10px); // Full width minus padding
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.button {
+   background-color: #0070f3; // Button color
+   color: white; // Text color
+   padding: 10px;
+   border-radius: 4px;
+
+   & + & {
+     margin-left:10px; // Add margin between buttons
+   }
+}
+
+.result {
+   margin-top:20px;
+
+   h2 {
+     font-size:1.5rem; 
+     margin-bottom:5px; 
+   }
+}
