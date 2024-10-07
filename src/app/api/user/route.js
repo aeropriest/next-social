@@ -21,21 +21,17 @@ export async function POST(request) {
   console.log(user_id);
 
   try {
-    // Create user
-    const res1 = await fetch(
-      process.env.NEXT_PUBLIC_CIRCLE_BASE_URL + "/users",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_CIRCLE_API_KEY}`,
-          "Content-Type": "application/json",
-          "User-Agent": "PW-TEST-SERVER",
-        },
-        body: JSON.stringify({
-          userId: user_id,
-        }),
-      }
-    );
+    const res1 = await fetch(process.env.CIRCLE_BASE_URL + "/users", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.CIRCLE_API_KEY}`,
+        "Content-Type": "application/json",
+        "User-Agent": "PW-TEST-SERVER",
+      },
+      body: JSON.stringify({
+        userId: user_id,
+      }),
+    });
 
     const data1 = await res1.json();
 
