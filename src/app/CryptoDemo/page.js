@@ -12,34 +12,34 @@ const generatePrivateKeyFromNumber = (number) => {
   return "0x" + hash;
 };
 
-// Function to encrypt a message
-const encryptMessage = (message, publicKey) => {
-  const cipher = crypto.createCipheriv(
-    "aes-256-cbc",
-    Buffer.from(publicKey.slice(2), "hex"),
-    Buffer.alloc(16, 0)
-  );
-  let encrypted = cipher.update(message, "utf-8", "hex");
-  encrypted += cipher.final("hex");
-  return encrypted;
-};
+// // Function to encrypt a message
+// const encryptMessage = (message, publicKey) => {
+//   const cipher = crypto.createCipheriv(
+//     "aes-256-cbc",
+//     Buffer.from(publicKey.slice(2), "hex"),
+//     Buffer.alloc(16, 0)
+//   );
+//   let encrypted = cipher.update(message, "utf-8", "hex");
+//   encrypted += cipher.final("hex");
+//   return encrypted;
+// };
 
-// Function to decrypt a message
-const decryptMessage = (encryptedMessage, privateKey) => {
-  const decipher = crypto.createDecipheriv(
-    "aes-256-cbc",
-    Buffer.from(privateKey.slice(2), "hex"),
-    Buffer.alloc(16, 0)
-  );
-  let decrypted;
-  try {
-    decrypted = decipher.update(encryptedMessage, "hex", "utf-8");
-    decrypted += decipher.final("utf-8");
-    return decrypted;
-  } catch (error) {
-    return null; // Return null if decryption fails
-  }
-};
+// // Function to decrypt a message
+// const decryptMessage = (encryptedMessage, privateKey) => {
+//   const decipher = crypto.createDecipheriv(
+//     "aes-256-cbc",
+//     Buffer.from(privateKey.slice(2), "hex"),
+//     Buffer.alloc(16, 0)
+//   );
+//   let decrypted;
+//   try {
+//     decrypted = decipher.update(encryptedMessage, "hex", "utf-8");
+//     decrypted += decipher.final("utf-8");
+//     return decrypted;
+//   } catch (error) {
+//     return null; // Return null if decryption fails
+//   }
+// };
 
 const CryptoDemo = () => {
   // State for user PINs

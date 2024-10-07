@@ -1,55 +1,79 @@
-// pages/CryptoDemo.module.scss
+// pages/page.module.scss
 
 .container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .inputGroup {
-    margin-bottom: 15px;
-  
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-  }
-  
-  .input,
-  .textarea {
-    width: calc(100% - 10px);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .textarea {
-    height: 100px;
-  }
-  
-  .button {
-    background-color: #0070f3;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    
-   & + & {
-     margin-left:10px; // Add margin between buttons
-   }
-  }
-  
-  .result {
-     margin-top:20px;
-  
-     h2 {
-       font-size:1.5rem; 
-       margin-bottom:5px; 
-     }
-  }
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+  margin-bottom: 30px; /* Increased spacing between steps */
+}
+
+.secureInput {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.dot {
+  font-size: 2rem; // Size of the dots/asterisks
+  margin: 0 5px; // Spacing between dots
+}
+
+.input,
+.textarea {
+  width: calc(100% - 10px); // Full width minus padding
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.textarea {
+ height: 100px; 
+}
+
+.button {
+ background-color: #0070f3; // Button color
+ color: white; // Text color
+ padding: 10px;
+ border-radius: 4px;
+ margin-top:10px; // Add some margin above buttons
+
+ & + & {
+   margin-left:10px; // Add margin between buttons
+ }
+}
+
+.result {
+ margin-top:20px;
+
+ h2 {
+   font-size:1.5rem; 
+   margin-bottom:5px; 
+ }
+}
+
+/* Step Progress Styles */
+.stepProgress {
+ display: flex;
+ justify-content: center; /* Center align step indicators */
+ margin-top:20px; /* Space above step progress */
+}
+
+.step {
+ padding:10px; 
+ font-weight:bold; 
+ cursor:pointer; 
+}
+
+.activeStep {
+ color:#0070f3; /* Active step color */
+}
