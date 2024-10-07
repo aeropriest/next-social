@@ -13,36 +13,42 @@
 // limitations under the License.
 */
 
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 import { v4 } from "uuid";
 import { headers } from "next/headers";
 
 export async function GET(request, params) {
-    const requestHeaders = new Headers(request.headers);
-    const userTokenFromHeader = requestHeaders.get('x-user-token');
-    const { walletId } = params.params
+  const requestHeaders = new Headers(request.headers);
+  const userTokenFromHeader = requestHeaders.get("x-user-token");
+  const { walletId } = params.params;
 
-    try {
-        console.log("Getting balances...")
-        // Get wallet balances
-        const res = await fetch(process.env.CIRCLE_BASE_URL + '/wallets/' + walletId + '/balances?includeAll=True', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${process.env.CIRCLE_API_KEY}`,
-                'Content-Type': 'application/json',
-                'X-User-Token': userTokenFromHeader,
-                'User-Agent': 'PW-TEST-SERVER',
-            },
-        });
+  try {
+    console.log("Getting balances...");
+    // Get wallet balances
+    const res = await fetch(
+      process.env.CIRCLE_BASE_URL +
+        "/wallets/" +
+        walletId +
+        "/balances?includeAll=True",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.CIRCLE_API_KEY}`,
+          "Content-Type": "application/json",
+          "X-User-Token": userTokenFromHeader,
+          "User-Agent": "PW-TEST-SERVER",
+        },
+      }
+    );
+    return NextResponse.json(walletId, { status: res.status });
 
-        const data = await res.json();
+    const data = await res.json();
 
-        console.log(data)
+    console.log(data);
 
-        return NextResponse.json(data['data']['tokenBalances']);
-    } catch (e) {
-        console.log(e);
-        return NextResponse.json(e, { status: 500 });
-    }
-
+    return NextResponse.json(data["data"]["tokenBalances"]);
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json(e, { status: 500 });
+  }
 }

@@ -3,10 +3,12 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "./page.module.scss"; // Assuming you have a separate SASS file for styles
 import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
+import { useRouter } from "next/navigation"; // Updated import
 
 let sdk;
 
 const Home = () => {
+  const router = useRouter(); // Initialize the router
   const [appId, setAppId] = useState(process.env.NEXT_PUBLIC_CIRCLE_APP_ID);
   const [userToken, setUserToken] = useState("");
   const [encryptionKey, setEncryptionKey] = useState("");
@@ -67,7 +69,10 @@ const Home = () => {
       if (result.data) {
         console.log(`signature: ${result.data?.signature}`);
       }
+      console.log(result);
     });
+    console.log("----- handle challenge end -------");
+    router.push(`/wallet?userToken=${encodeURIComponent(userToken)}`);
   }, [appId, challengeId, encryptionKey, userToken]);
 
   const handleRegister = async (e) => {

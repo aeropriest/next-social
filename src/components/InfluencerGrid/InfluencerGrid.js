@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { faker } from '@faker-js/faker';
-import BeatLoader from 'react-spinners/BeatLoader';
-import InfluencerCard from '@/components/InfluencerGrid/InfluencerCard/InfluencerCard';
-import styles from './InfluencerGrid.module.scss';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { faker } from "@faker-js/faker";
+import BeatLoader from "react-spinners/BeatLoader";
+import InfluencerCard from "@/components/InfluencerGrid/InfluencerCard/InfluencerCard";
+import styles from "./InfluencerGrid.module.scss";
 
 export const formatFollowersCount = (count) => {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}m`;
@@ -39,7 +39,7 @@ export default function InfluencerGrid() {
           loadMoreProfiles();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
 
     if (observerRef.current) observer.observe(observerRef.current);
