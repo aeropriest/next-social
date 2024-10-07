@@ -2,16 +2,8 @@
   border: 1px solid var(--shadow-color);
   box-shadow: 0 1px 0.625rem var(--shadow-color);
   border-radius: 0.5rem;
-  // width: 100%;
-  // overflow: hidden;
- /* Adjust max-width to make it wider */
-//  max-width: 40rem; /* Increased max-width */
-  
-//  width: 100%; /* Allow it to take full width of its container */
- 
-//  margin: 1rem auto; /* Center horizontally with auto margins */
-
   margin: 1rem 0px;
+  min-width: 25rem;
   display: flex;
   flex-direction: column;
   gap: 2rem; /* Increased gap between elements */

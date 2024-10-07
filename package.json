@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@circle-fin/user-controlled-wallets": "^4.5.0",
+    "@circle-fin/w3s-pw-web-sdk": "^1.1.6",
     "@faker-js/faker": "^9.0.1",
     "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.7",
