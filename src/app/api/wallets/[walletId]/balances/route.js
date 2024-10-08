@@ -44,6 +44,7 @@ export async function GET(request, params) {
     }
 
     const data = await res.json(); // Parse response data
+    console.log("Wallet Balance :", JSON.stringify(data));
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error:", error);
