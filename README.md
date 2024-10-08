@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+http://localhost:3000/api/wallets/dd25d1f1-004f-5d3e-a2b1-2a8af29d6678/balances
+
 ## Getting Started
 
 First, run the development server:
