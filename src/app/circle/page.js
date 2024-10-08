@@ -13,8 +13,8 @@ const Home = () => {
   const [userToken, setUserToken] = useState("");
   const [encryptionKey, setEncryptionKey] = useState("");
   const [challengeId, setChallengeId] = useState("");
-  const [email, setEmail] = useState("test@newsocialtheory.com");
-  const [password, setPassword] = useState("123@Test123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -71,8 +71,8 @@ const Home = () => {
       }
       console.log(result);
     });
-    console.log("----- handle challenge end -------");
-    router.push(`/wallet?userToken=${encodeURIComponent(userToken)}`);
+    // console.log("----- handle challenge end -------");
+    router.push(`/circle/wallet?userToken=${encodeURIComponent(userToken)}`);
   }, [appId, challengeId, encryptionKey, userToken]);
 
   const handleRegister = async (e) => {
