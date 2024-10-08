@@ -18,7 +18,7 @@ export default function Page({ params }) {
         });
         setUserToken(response.data?.userToken);
         setUserChallengeId(response.data?.challengeId);
-        setUserEncryptionKey(response.data?.encryptionKey); // Set encryption key to state
+        setUserEncryptionKey(response.data?.encryptionKey);
 
         console.log("User details fetched:", response.data);
 
@@ -37,12 +37,16 @@ export default function Page({ params }) {
           url: "/api/user/wallets",
           headers: {
             "Content-Type": "application/json",
-            "X-User-Token": userToken, // Use the fetched user token here
+            "X-User-Token": userToken,
           },
         };
         const response = await axios.request(config);
+        const w = response.data;
+        w.map((wallet) => {
+          console.log("Wallet details fetched:", wallet);
+          // fetchWalletBalance(wallet.id);
+        });
         setWallets(response.data);
-        console.log("Wallet details fetched:", wallets);
       } catch (error) {
         console.error("Error fetching wallet details:", error);
         setError(error);
@@ -73,12 +77,18 @@ export default function Page({ params }) {
             <div>Challenge Id: {userChallengeId}</div>
             <div>Encryption Key: {userEncryptionKey}</div>
           </div>
-          <div>
-            {wallets &&
-              wallets.map((wallet) => {
-                <div>{wallet.address}</div>;
-              })}
-          </div>
+          <h3>Wallets:</h3>
+          {Array.isArray(wallets) && wallets.length > 0 ? (
+            wallets.map((wallet, index) => (
+              <div key={index}>
+                <h4> ID: {wallet.id}</h4>
+                <p>Address : {wallet.address}</p>
+                <p>Chain : {wallet.blockchain}</p>
+              </div>
+            ))
+          ) : (
+            <div>No wallets found.</div>
+          )}{" "}
         </div>
       ) : (
         <div>Loading...</div>
