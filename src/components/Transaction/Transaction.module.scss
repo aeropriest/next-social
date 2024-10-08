@@ -1,0 +1,32 @@
+.transaction {
+    display: flex;
+    flex-direction: row;
+    width: 100%; 
+    justify-content: space-between;
+    // align-items: center; /* Center align items vertically */
+    font-size: 0.8rem; /* Adjust font size as needed */
+    padding: 0.5rem; /* Add padding for better spacing */
+    border-bottom: 1px solid #ccc; /* Optional: Add a bottom border for separation */
+}
+
+.icon {
+    margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.transactionDetails {
+    // flex-grow: 1; /* Allow this section to take available space */
+    // background-color: red;
+    // align-items: start;
+}
+
+.amount {
+    font-weight: bold; /* Make amount bold */
+    // justify-content: end; 
+    // align-items: end;;
+    // background-color: red;
+    
+}
+
+.accountNumber {
+    color: gray; /* Optional: Style for account number */
+}
