@@ -24,7 +24,7 @@ export default function Header() {
       <div>
         <Toggle />
       </div>
-      {session ? <Logout /> : <Login />}
+      {/* {session ? <Logout /> : <Login />} */}
     </header>
   );
 }

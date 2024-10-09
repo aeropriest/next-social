@@ -1,22 +1,16 @@
-.button {
+
+.button{
   display: flex;
-  gap: 0.5rem;
-  border: 0.5px solid var(--foreground);
-  background-color: var(--background);
-  color: var(--foreground);
-  border-radius: 0.2rem;
-  padding: 0.25rem;
+  padding: 0.5rem 2rem;
   cursor: pointer;
-}
-
-.toggle {
-  width: 2.625rem;
-  height: 2.625rem;
+  border-radius: 0.5rem;
+  color: var(--background);
   background-color: var(--foreground);
-  border-radius: 0.2rem;
+  border:1px solid var(--foreground);
+  &:hover {
+      color: var(--foreground);
+      background-color: var(--background);
+  }
 }
 
-.icon {
-  padding: 0.5rem;
-}
 
