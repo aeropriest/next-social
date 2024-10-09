@@ -61,9 +61,20 @@
 
 .toggleText {
    color: var(--foreground); // Use appropriate styling for toggle text
-   font-size: small; /* Smaller text for terms */
    margin-left: .25rem; /* Gap between checkbox and text */
+   cursor: pointer;
+   font-weight:500;
+   text-decoration: underline;
 }
+
+.agreeText {
+  color: var(--foreground); // Use appropriate styling for toggle text
+  font-size: small; /* Smaller text for terms */
+  margin-left: .25rem; /* Gap between checkbox and text */
+  cursor: pointer;
+ color: darkblue;
+}
+
 
 .checkboxContainer {
    display: flex; 

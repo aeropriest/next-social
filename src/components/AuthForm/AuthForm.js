@@ -65,7 +65,7 @@ const AuthForm = () => {
         </p>
         <div className={styles.checkboxContainer}>
           <input type="checkbox" id="terms" />
-          <label htmlFor="terms" className={styles.toggleText}>
+          <label htmlFor="terms" className={styles.agreeText}>
             I agree to the terms and conditions
           </label>
         </div>
