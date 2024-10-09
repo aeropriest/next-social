@@ -1,9 +1,10 @@
-// components/ToggleComponent.js
-
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import styles from "./AuthForm.module.scss";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Main from "../Main/Main";
+// import db from "@/utils/firebase";
+// import { doc, setDoc } from "firebase/firestore";
 
 const AuthForm = () => {
   const { session, status } = useSession();
@@ -11,21 +12,18 @@ const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleToggle = () => {
-    setIsLogin(!isLogin);
-  };
-  const handleRegister = (e) => {};
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isLogin) {
-      // Handle login logic
-      console.log("Logging in:", { email, password });
-    } else {
-      // Handle registration logic
-      console.log("Registering:", { email, password });
+  useEffect(() => {
+    if (session) {
+      //   saveUserToFirestore(session.user);
+      console.log("========User is logged in:", session.user);
     }
+  }, [session]);
+
+  const handleGoogleSignIn = () => {
+    console.log("Sign in using google");
+    signIn("google");
   };
+
   return (
     <Main>
       <div className={styles.container}>
@@ -33,7 +31,7 @@ const AuthForm = () => {
         <p className={styles.followers}>
           {isLogin ? "Login to your account" : "Create your account"}
         </p>
-        <form onSubmit={handleRegister} className={styles.form}>
+        <form className={styles.form}>
           <input
             type="email"
             value={email}
@@ -50,7 +48,11 @@ const AuthForm = () => {
             required
             className={`${styles.input} w-full`}
           />
-          <button type="submit" className={styles.button}>
+          <button
+            type="submit"
+            className={styles.button}
+            onClick={handleGoogleSignIn}
+          >
             {isLogin ? "Login" : "Sign Up"}
           </button>
         </form>
