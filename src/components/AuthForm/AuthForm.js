@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./AuthForm.module.scss";
-import { useSession, signIn } from "next-auth/react";
+import {
+  useSession,
+  signIn,
+  createUserWithEmailAndPassword,
+} from "next-auth/react";
+
 import Main from "../Main/Main";
 // import db from "@/utils/firebase";
 // import { doc, setDoc } from "firebase/firestore";
@@ -23,7 +28,14 @@ const AuthForm = () => {
     console.log("Sign in using google");
     signIn("google");
   };
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isLogin) {
+      await signIn("credentials", { email, password });
+    } else {
+      await registerUser(email, password);
+    }
+  };
   return (
     <Main>
       <div className={styles.container}>
@@ -31,7 +43,7 @@ const AuthForm = () => {
         <p className={styles.followers}>
           {isLogin ? "Login to your account" : "Create your account"}
         </p>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="email"
             value={email}
@@ -48,11 +60,7 @@ const AuthForm = () => {
             required
             className={`${styles.input} w-full`}
           />
-          <button
-            type="submit"
-            className={styles.button}
-            onClick={handleGoogleSignIn}
-          >
+          <button type="submit" className={styles.button}>
             {isLogin ? "Login" : "Sign Up"}
           </button>
         </form>

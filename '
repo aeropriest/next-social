@@ -1,0 +1,21 @@
+* Adding 0AUTH
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Ashok Jaiswal <ashokjaiswal@Ashoks-MacBook-Pro.local>
+#
+# On branch 0auth
+# Your branch is up to date with 'origin/0auth'.
+#
+# Changes to be committed:
+#	modified:   app/api/auth/[...nextauth].js
+#	modified:   app/page.js
+#	renamed:    app/signin-later/page.js -> app/signin/page.js
+#	new file:   app/utils/firebase.js
+#	modified:   components/AuthForm/AuthForm.js
+#
+# Changes not staged for commit:
+#	modified:   ../package-lock.json
+#	modified:   ../package.json
+T PIUS#
