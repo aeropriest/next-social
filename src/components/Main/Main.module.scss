@@ -1,4 +1,9 @@
 .main {
+  // to show everything in the middle, this might cause problem with the influencer page
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: var(--background-light);
   color: var(--text-light);
   overflow-y: auto;
